@@ -1,0 +1,13 @@
+{{- $page := . -}}
+{{- $tz := site.Params.timezone | default "AEDT" -}}
+<article class="update-card update-card--{{ .Params.severity | default "info" }}">
+  <time class="update-card__time" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+    {{ .Date.Format "2 Jan 2006, 3:04 PM" }} {{ $tz }}
+  </time>
+  <h3 class="update-card__title">
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </h3>
+  {{ with .Summary }}
+  <p class="update-card__summary">{{ . }}</p>
+  {{ end }}
+</article>

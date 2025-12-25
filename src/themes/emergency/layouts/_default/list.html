@@ -1,0 +1,62 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  
+  {{ with .Content }}
+  <div class="page-content">
+    {{ . }}
+  </div>
+  {{ end }}
+  
+  {{ if eq .Section "updates" }}
+    <ul class="update-list" role="list">
+      {{- range .Pages.ByDate.Reverse }}
+      <li>
+        {{- partial "update-card.html" . -}}
+      </li>
+      {{- end }}
+    </ul>
+  
+  {{ else if eq .Section "faq" }}
+    <ul class="faq-list" role="list">
+      {{- range .Pages }}
+      <li class="faq-item" id="{{ .File.ContentBaseName }}">
+        <h2 class="faq-question">{{ .Title }}</h2>
+        <div class="faq-answer">
+          {{ .Content }}
+        </div>
+      </li>
+      {{- end }}
+    </ul>
+  
+  {{ else if eq .Section "prepkit" }}
+    {{- range .Pages }}
+    <section>
+      <h2>{{ .Title }}</h2>
+      {{ .Content }}
+    </section>
+    {{- end }}
+  
+  {{ else }}
+    <ul>
+      {{- range .Pages }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </li>
+      {{- end }}
+    </ul>
+  {{ end }}
+  
+  {{ $paginator := .Paginate .Pages }}
+  {{ if gt $paginator.TotalPages 1 }}
+  <nav aria-label="Pagination">
+    <ul>
+      {{ if $paginator.HasPrev }}
+      <li><a href="{{ $paginator.Prev.URL }}">← Previous</a></li>
+      {{ end }}
+      {{ if $paginator.HasNext }}
+      <li><a href="{{ $paginator.Next.URL }}">Next →</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+  {{ end }}
+{{ end }}

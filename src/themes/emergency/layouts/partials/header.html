@@ -1,0 +1,26 @@
+<header class="site-header" role="banner">
+  <div class="container">
+    <p class="site-title">
+      <a href="/">
+        <svg class="site-logo" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="28" height="28">
+          <circle cx="50" cy="50" r="45" fill="#FFFFFF"/>
+          <rect x="45" y="22" width="10" height="38" rx="5" fill="#B91C1C"/>
+          <circle cx="50" cy="72" r="6" fill="#B91C1C"/>
+        </svg>
+        {{ site.Title }}
+      </a>
+    </p>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul>
+        {{- range site.Menus.main }}
+        {{- $isActive := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) -}}
+        <li>
+          <a href="{{ .URL }}"{{ if $isActive }} aria-current="page" class="is-active"{{ end }}>
+            {{ .Name }}
+          </a>
+        </li>
+        {{- end }}
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,17 @@
+{
+  "name": "Emergency Information",
+  "short_name": "Emergency",
+  "description": "Emergency information and updates",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#B91C1C",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

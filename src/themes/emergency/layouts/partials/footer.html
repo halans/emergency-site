@@ -1,0 +1,29 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-info">
+        {{ with site.Params.orgName }}
+        <p><strong>{{ . }}</strong></p>
+        {{ end }}
+        <p class="footer-contact">
+          {{ with site.Params.telephone }}
+          <a href="tel:{{ . }}" aria-label="Call emergency hotline">
+            <span aria-hidden="true">📞</span> {{ . }}
+          </a>
+          {{ end }}
+          {{ with site.Params.email }}
+          <a href="mailto:{{ . }}">
+            <span aria-hidden="true">✉️</span> {{ . }}
+          </a>
+          {{ end }}
+        </p>
+      </div>
+      <div class="footer-meta">
+        <p>
+          {{- $tz := site.Params.timezone | default "AEDT" -}}
+          Last updated: <time datetime="{{ now.Format "2006-01-02T15:04:05Z07:00" }}">{{ now.Format "2 Jan 2006, 3:04 PM" }} {{ $tz }}</time>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

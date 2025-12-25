@@ -1,0 +1,8 @@
+{{- with site.Params.alertMessage -}}
+<div class="alert-banner alert-banner--{{ site.Params.alertLevel | default "warning" }}" role="alert" aria-live="polite">
+  {{ with site.Params.alertTitle }}
+  <p class="alert-banner__title">{{ . }}</p>
+  {{ end }}
+  <p class="alert-banner__content">{{ site.Params.alertMessage }}</p>
+</div>
+{{- end -}}

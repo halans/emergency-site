@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <article>
+    <header>
+      {{ if eq .Section "updates" }}
+      <div class="update-meta">
+        {{- $tz := site.Params.timezone | default "AEDT" -}}
+        {{- $severity := .Params.severity | default "info" -}}
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+          {{ .Date.Format "2 Jan 2006, 3:04 PM" }} {{ $tz }}
+        </time>
+        <span class="severity-pill severity-pill--{{ $severity }}">{{ $severity }}</span>
+      </div>
+      {{ end }}
+      <h1>{{ .Title }}</h1>
+    </header>
+    
+    <div class="page-content">
+      {{ .Content }}
+    </div>
+    
+    <footer>
+      <p><a href="{{ .Parent.Permalink | default "/" }}">← Back</a></p>
+    </footer>
+  </article>
+{{ end }}

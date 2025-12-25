@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang | default "en" }}">
+<head>
+  {{- partial "head.html" . -}}
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  {{- partial "header.html" . -}}
+  
+  <main id="main" role="main" class="site-main">
+    <div class="container">
+      {{- block "main" . }}{{ end -}}
+    </div>
+  </main>
+  
+  {{- partial "footer.html" . -}}
+  
+  {{- if not hugo.IsServer -}}
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(function() {});
+    }
+  </script>
+  {{- end -}}
+</body>
+</html>

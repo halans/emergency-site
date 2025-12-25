@@ -1,0 +1,36 @@
+{{ define "main" }}
+  {{- partial "alert-banner.html" . -}}
+  
+  <h1>{{ .Title | default site.Title }}</h1>
+  
+  {{ with .Content }}
+  <div class="page-content">
+    {{ . }}
+  </div>
+  {{ end }}
+  
+  {{ $updates := where site.RegularPages "Section" "updates" }}
+  {{ if $updates }}
+  <section aria-labelledby="updates-heading">
+    <h2 id="updates-heading">Latest Updates</h2>
+    <ul class="update-list" role="list">
+      {{- range first 5 $updates.ByDate.Reverse }}
+      <li>
+        {{- partial "update-card.html" . -}}
+      </li>
+      {{- end }}
+    </ul>
+    {{ if gt (len $updates) 5 }}
+    <p><a href="/updates/">View all updates →</a></p>
+    {{ end }}
+  </section>
+  {{ end }}
+  
+  <section aria-labelledby="quick-links-heading">
+    <h2 id="quick-links-heading">Quick Links</h2>
+    <ul>
+      <li><a href="/faq/">Frequently Asked Questions</a></li>
+      <li><a href="/prepkit/">Emergency Preparation Kit</a></li>
+    </ul>
+  </section>
+{{ end }}

@@ -259,10 +259,21 @@ a:hover {
    Alert Banner
    ======================================== */
 .alert-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
   padding: var(--space-md);
   border-left: 4px solid;
   margin-bottom: var(--space-lg);
   background: var(--color-bg-secondary);
+}
+
+.alert-banner__icon {
+  flex-shrink: 0;
+}
+
+.alert-banner__text {
+  flex: 1;
 }
 
 .alert-banner--critical {
@@ -348,11 +359,18 @@ a:hover {
 }
 
 .update-card {
+  position: relative;
   padding: var(--space-lg);
   margin-bottom: var(--space-md);
   background: var(--color-bg-secondary);
   border-radius: 4px;
   border-left: 4px solid var(--color-border);
+}
+
+.update-card__icon {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
 }
 
 .update-card--critical {

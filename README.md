@@ -202,4 +202,4 @@ Create `assets/css/critical.css` in your site root to replace theme styles.
 
 MIT
 
-Created with Antigravity, using [Hugo](https://gohugo.io) v0.147.7+extended+deploy
+Created with Antigravity and Claude Opus 4.5, using [Hugo](https://gohugo.io) v0.147.7+extended+withdeploy

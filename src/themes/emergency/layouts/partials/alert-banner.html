@@ -1,8 +1,18 @@
 {{- with site.Params.alertMessage -}}
-<div class="alert-banner alert-banner--{{ site.Params.alertLevel | default "warning" }}" role="alert" aria-live="polite">
-  {{ with site.Params.alertTitle }}
-  <p class="alert-banner__title">{{ . }}</p>
+{{- $level := site.Params.alertLevel | default "warning" -}}
+<div class="alert-banner alert-banner--{{ $level }}" role="alert" aria-live="polite">
+  {{ if eq $level "critical" }}
+  <img src="/critical.svg" alt="" class="alert-banner__icon" width="28" height="28" aria-hidden="true">
+  {{ else if eq $level "warning" }}
+  <img src="/warning.svg" alt="" class="alert-banner__icon" width="28" height="28" aria-hidden="true">
+  {{ else if eq $level "info" }}
+  <img src="/info.svg" alt="" class="alert-banner__icon" width="28" height="28" aria-hidden="true">
   {{ end }}
-  <p class="alert-banner__content">{{ site.Params.alertMessage }}</p>
+  <div class="alert-banner__text">
+    {{ with site.Params.alertTitle }}
+    <p class="alert-banner__title">{{ . }}</p>
+    {{ end }}
+    <p class="alert-banner__content">{{ site.Params.alertMessage }}</p>
+  </div>
 </div>
 {{- end -}}

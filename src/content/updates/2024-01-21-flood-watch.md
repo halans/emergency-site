@@ -31,6 +31,6 @@ A flood watch has been issued for the region until Friday.
 
 - Never drive, walk, or swim through floodwater
 - Move to higher ground immediately if water rises
-- Call 000 if in immediate danger
+- Call Emergency Services if in immediate danger
 
 We will provide updates as the situation develops.

@@ -32,5 +32,5 @@ Open 24 hours
 
 ## Emergency Contacts
 
-- Emergency Services: 000
+- Emergency Services: XXX
 - Bushfire Information Line: 1800 XXX XXX

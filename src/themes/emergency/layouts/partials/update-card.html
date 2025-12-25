@@ -1,7 +1,15 @@
 {{- $page := . -}}
 {{- $tz := site.Params.timezone | default "AEDT" -}}
-<article class="update-card update-card--{{ .Params.severity | default "info" }}">
-  <time class="update-card__time" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+{{- $severity := .Params.severity | default "info" -}}
+<article class="update-card update-card--{{ $severity }}">
+  {{ if eq $severity "critical" }}
+  <img src="/critical.svg" alt="Critical" class="update-card__icon" width="24" height="24">
+  {{ else if eq $severity "warning" }}
+  <img src="/warning.svg" alt="Warning" class="update-card__icon" width="24" height="24">
+  {{ else if eq $severity "info" }}
+  <img src="/info.svg" alt="Info" class="update-card__icon" width="24" height="24">
+  {{ end }}
+  <time class="update-card__time" datetime="{{ .Date.Format " 2006-01-02T15:04:05Z07:00" }}">
     {{ .Date.Format "2 Jan 2006, 3:04 PM" }} {{ $tz }}
   </time>
   <h3 class="update-card__title">

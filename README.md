@@ -1,8 +1,9 @@
-# Emergency Site Kit
+# Emergency Site
 
-A lightweight, performant, and accessible Hugo theme for emergency information websites. Designed to work under extreme conditions with poor connectivity.
+A lightweight, performant, and accessible emergency information websites. Designed to work under extreme conditions with poor connectivity.
 
-When disaster strikes, traditional CMS websites often buckle under traffic surges while damaged infrastructure leaves affected communities with unreliable connections. This theme enables rapid deployment of resilient emergency sites — built using simple technologies for maximum reliability.
+When disaster strikes, traditional CMS websites often buckle under traffic surges while damaged infrastructure leaves affected communities with unreliable connections. 
+This is a resilient emergency site — built using simple technologies for maximum reliability, based on https://github.com/halans/hugo-emergency-site-kit.
 
 
 ## Features
@@ -16,7 +17,6 @@ When disaster strikes, traditional CMS websites often buckle under traffic surge
 ## Quick Start
 
 ### Deploy to Cloudflare Pages
-
 
 1. Fork this repository
 2. Go to [Cloudflare Pages](https://pages.cloudflare.com/)
